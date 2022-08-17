@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:tns="http://localhost:12312/soapServer.php"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="http://localhost:12312/soapServer.php">
+
+    <message name="helloRequest"/>
+
+    <message name="helloResponse">
+        <part name="return" type="xsd:string"/>
+    </message>
+
+    <portType name="hellowsdlPortType">
+        <operation name="hello">
+            <input message="tns:helloRequest"/>
+            <output message="tns:helloResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="hellowsdlBinding" type="tns:hellowsdlPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="hello">
+            <soap:operation soapAction="hello"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </binding>
+
+    <service name="hellowsdl">
+        <port name="hellowsdlPort" binding="tns:hellowsdlBinding">
+            <soap:address location="http://localhost:12312/soapServer.php"/>
+        </port>
+    </service>
+</definitions>

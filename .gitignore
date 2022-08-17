@@ -1,0 +1,16 @@
+###> MacBook ###
+.DS_Store
+###> MacBook ###
+
+###> IDE ###
+.idea/
+###> IDE ###
+
+/test.php
+/test-server.php
+/test.txt
+/test.xml
+/CHAPTER 5 Object-Oriented PHP/serialize.txt
+/CHAPTER 7 Data Formats and Types/DOM-copy.html
+/CHAPTER 7 Data Formats and Types/DOM-copy.xml
+/CHAPTER 8 Input-Output/test.csv
